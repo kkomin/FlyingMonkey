@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,7 +25,67 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(Object context) {
-    return Scaffold();
+    final List<String> images = [
+      "https://cdn2.thecatapi.com/images/6bt.jpg",
+      "https://cdn2.thecatapi.com/images/ahr.jpg",
+      "https://cdn2.thecatapi.com/images/arj.jpg",
+      "https://cdn2.thecatapi.com/images/brt.jpg",
+      "https://cdn2.thecatapi.com/images/cml.jpg",
+      "https://cdn2.thecatapi.com/images/e35.jpg",
+    ];
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.yellow,
+        elevation: 0.5,
+        title: Row(
+          // (중간) //
+          children: [
+            Text(
+              'Monkey Place',
+              style: TextStyle(
+                  color: Colors.brown,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
+          ],
+        ),
+        actions: [
+          //(우측 끝)
+          IconButton(
+            onPressed: () {},
+            icon: Icon(CupertinoIcons.search, color: Colors.brown),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.face, color: Colors.brown),
+          )
+        ],
+      ),
+      body: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              "assets/myshiba.jpg",
+              width: 100,
+              height: 100,
+              fit: BoxFit.cover,
+            ),
+          ),
+          //이미지
+          Column(
+            children: [
+              // 글씨
+              Row(
+                children: [
+                  // 빈칸 하트 아이콘
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
