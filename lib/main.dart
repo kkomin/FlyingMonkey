@@ -20,8 +20,15 @@ class MyApp extends StatelessWidget {
 // 첫 번째 페이지
 
 // 두 번째 페이지
-class SecondPage extends StatelessWidget {
+class SecondPage extends StatefulWidget {
   const SecondPage({super.key});
+
+  @override
+  State<SecondPage> createState() => _SecondPageState();
+}
+
+class _SecondPageState extends State<SecondPage> {
+  bool like = false;
 
   @override
   Widget build(Object context) {
@@ -62,7 +69,9 @@ class SecondPage extends StatelessWidget {
         ],
       ),
       body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start, // 위쪽에 붙게 만들기
         children: [
+          SizedBox(width: 12),
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.asset(
@@ -72,16 +81,51 @@ class SecondPage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          //이미지
-          Column(
-            children: [
-              // 글씨
-              Row(
-                children: [
-                  // 빈칸 하트 아이콘
-                ],
-              ),
-            ],
+          SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start, // 왼쪽으로 붙게 만들기
+              children: [
+                Text(
+                  '팀원 양윤혁🙊',
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.brown,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text('ESTJ',
+                    style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.brown,
+                        fontWeight: FontWeight.bold)),
+                Text('개발블로그 만들었습니다.',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.brown,
+                        fontWeight: FontWeight.bold)),
+                Row(
+                  children: [
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          like = !like;
+                        });
+                      },
+                      child: Row(children: [
+                        Icon(
+                          like
+                              ? CupertinoIcons.hand_thumbsup_fill
+                              : CupertinoIcons.hand_thumbsup,
+                          color: like ? Colors.brown : Colors.black,
+                          size: 20,
+                        )
+                      ]),
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
