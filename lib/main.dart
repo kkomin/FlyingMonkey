@@ -19,6 +19,14 @@ class MyApp extends StatelessWidget {
 // 첫 번째 페이지
 
 // 두 번째 페이지
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
+  @override
+  Widget build(Object context) {
+    return Scaffold();
+  }
+}
 
 //세 번째 페이지
 class ThirdPage extends StatelessWidget {
