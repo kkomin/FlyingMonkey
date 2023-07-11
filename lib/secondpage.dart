@@ -10,6 +10,7 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   bool like = false; // 좋아요 여부
+  int likenum = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +55,9 @@ class _SecondPageState extends State<SecondPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow,
+        backgroundColor: Color(0xFFF9E932),
         elevation: 0.5,
+        leading: Icon(CupertinoIcons.arrow_2_circlepath),
         title: Row(
           // (중간) //
           children: [
@@ -88,57 +90,80 @@ class _SecondPageState extends State<SecondPage> {
           String position = dataList[index]['position'];
           String TMI = dataList[index]['TMI'];
           String img = dataList[index]['img'];
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(width: 12),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  img,
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(width: 10),
-                      (Text(
-                        name,
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
-                      )),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      (Text(
-                        position,
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
-                      )),
-                      SizedBox(height: 5),
-                      (Text(
-                        TMI,
-                        maxLines: 2,
-                        style: TextStyle(fontSize: 13, color: Colors.black),
-                      )),
-                      SizedBox(
-                        height: 5,
-                      ),
-                    ],
+          return Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(width: 12),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    img,
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.cover,
                   ),
                 ),
-              ),
-            ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(width: 10),
+                        (Text(
+                          name,
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
+                        )),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        (Text(
+                          position,
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
+                        )),
+                        SizedBox(height: 5),
+                        (Text(
+                          TMI,
+                          maxLines: 2,
+                          style: TextStyle(fontSize: 13, color: Colors.black),
+                        )),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: [
+                            Spacer(),
+                            Icon(
+                              CupertinoIcons.hand_thumbsup_fill,
+                              color: Colors.brown,
+                              size: 20,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  likenum = likenum + 1;
+                                });
+                              },
+                              child: Row(
+                                children: [Text("$likenum")],
+                              ),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           );
         },
         separatorBuilder: (BuildContext context, int index) {
