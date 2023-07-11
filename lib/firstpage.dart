@@ -14,72 +14,185 @@ class firstPage extends StatelessWidget {
         title: Text(
           'Monkey Place',
           style: TextStyle(
-            fontSize: 20,
+            fontSize: 25,
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.08,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100),
-            child: Container(
-              alignment: Alignment.center,
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 244, 175),
-                shape: BoxShape.circle,
-              ),
-              child: Image.network(
-                "https://img.freepik.com/free-vector/cute-baby-monkey-hug-banana-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated_138676-5559.jpg?t=st=1689060764~exp=1689061364~hmac=e55d61a995d07d260a4b964d05c52232b3ef4e9ae5cc4e57c5ef7a3e3a3a7aa1",
-                width: 130,
-                height: 130,
-              ),
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Colors.brown[500]!, Colors.yellow[300]!],
+        )),
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.08,
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          Text(
-            "Monkey Place에 오신 것을 환영합니다",
-            style: TextStyle(
-              fontSize: 21,
-              color: Colors.yellow,
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          Container(
-            width: 350,
-            height: 60,
-            decoration: BoxDecoration(
-              color: Colors.grey[300],
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Center(
-              child: Text(
-                '플라잉 원숭이',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: Container(
+                alignment: Alignment.center,
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 244, 175),
+                  shape: BoxShape.circle,
+                ),
+                child: Image.network(
+                  "https://img.freepik.com/free-vector/cute-baby-monkey-hug-banana-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated_138676-5559.jpg?t=st=1689060764~exp=1689061364~hmac=e55d61a995d07d260a4b964d05c52232b3ef4e9ae5cc4e57c5ef7a3e3a3a7aa1",
+                  width: 130,
+                  height: 130,
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.03,
-          ),
-          Container(
-            child: Icon(Icons.wallet_membership),
-          )
-        ],
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            Text(
+              "Monkey Place에 오신 것을 환영합니다",
+              style: TextStyle(
+                fontSize: 21,
+                fontWeight: FontWeight.bold,
+                color: Colors.yellow,
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            Container(
+              width: 350,
+              height: 60,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text(
+                  '플라잉 원숭이',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            Container(
+              width: 350,
+              height: 120,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 7.0),
+                    child: Icon(
+                      Icons.account_circle,
+                      size: 50,
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'MEMBERS',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                          Text(
+                            "팀장 : 이다민",
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                          Text(
+                            "팀원 : 황수연, 김현정, 이호식, 양윤혁, 남소진",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                            ),
+                            softWrap: false,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            Container(
+              width: 350,
+              height: 130,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 7.0),
+                    child: Icon(
+                      Icons.play_circle,
+                      size: 50,
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'MOTO',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                          Text(
+                            "원숭이처럼 재밌고 유쾌하게 프로젝트를        즐기면서, 자유롭고 창의적인 사고로              프로젝트를 만들어내자 !",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                            ),
+                            softWrap: false,
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
