@@ -1,13 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:monkeyplace/first.dart';
 import 'package:monkeyplace/second.dart';
 import 'package:monkeyplace/third.dart';
-import 'package:flutter/services.dart';
 import 'package:monkeyplace/intro_page.dart';
-import 'package:monkeyplace/scondpage.dart';
 
 void main() {
   runApp(MyApp());
