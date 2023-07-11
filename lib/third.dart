@@ -1,4 +1,6 @@
 //세 번째 페이지
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 Widget buildRoundedBox(String text, Color color) {
@@ -15,7 +17,7 @@ Widget buildRoundedBox(String text, Color color) {
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: Colors.black87,
         ),
       ),
     ),
@@ -30,7 +32,17 @@ class ThirdPage extends StatelessWidget {
     // 추가적인 컨테이너 정보
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange[400],
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.white,
+            size: 25,
+          ),
+          onPressed: () {
+            DefaultTabController.of(context).animateTo(1);
+          },
+        ),
+        backgroundColor: Colors.yellow[700],
         title: Text(
           "MonkeyPlace",
           style: TextStyle(fontSize: 25),
@@ -61,39 +73,36 @@ class ThirdPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 13),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      child: Text(
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
                         '이다민',
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Align(
-                      child: Text(
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
                         '빅데이터학과 / 컴퓨터공학과',
                         style: TextStyle(
                           fontSize: 18,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Align(
-                      child: Text(
-                        '안녕하세요. 저는 이런 사람입니다.:)',
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        '개발이 참 어렵네요...',
+                        softWrap: false,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16, color: Colors.black),
                         maxLines: 5,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -121,11 +130,11 @@ class ThirdPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildRoundedBox('MBTI', Colors.blue),
+                buildRoundedBox('ESTJ', Colors.pink[200]!),
                 SizedBox(width: 10),
-                buildRoundedBox('MBTI', Colors.blue),
+                buildRoundedBox('강아지', Colors.purple[200]!),
                 SizedBox(width: 10),
-                buildRoundedBox('MBTI', Colors.blue),
+                buildRoundedBox('프로그래밍', Colors.blue[200]!),
               ],
             ),
           ),
@@ -134,11 +143,11 @@ class ThirdPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildRoundedBox('MBTI', Colors.blue),
+                buildRoundedBox('강아지', Colors.green[200]!),
                 SizedBox(width: 10),
-                buildRoundedBox('MBTI', Colors.blue),
+                buildRoundedBox('VALORANT', Colors.orange[200]!),
                 SizedBox(width: 10),
-                buildRoundedBox('MBTI', Colors.blue),
+                buildRoundedBox('오므라이스', Colors.yellow[200]!),
               ],
             ),
           ),
@@ -166,15 +175,7 @@ class ThirdPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "자기소개 하기~ 얍!",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 10,
-                        style: TextStyle(fontSize: 17),
-                      ),
-                    ),
+                    Text("안녕하세요. 개발자를 꿈꾸고 있는 이다민입니다:) "),
                     SizedBox(
                       height: 70,
                     )
@@ -195,7 +196,7 @@ class ThirdPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "자격증",
+                      "자격증 및 수상경력",
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -203,15 +204,6 @@ class ThirdPage extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 10,
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "oooo\noooooo",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 10,
-                        style: TextStyle(fontSize: 17),
-                      ),
                     ),
                   ],
                 ),
