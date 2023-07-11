@@ -1,4 +1,8 @@
+import 'dart:ffi';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(Myapp());
 
@@ -6,7 +10,95 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: thirdPage(),
+      home: secondPage(),
+    );
+  }
+}
+
+class secondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.backspace, color: Colors.black),
+          onPressed: () {},
+        ),
+        elevation: 0.0,
+        backgroundColor: Colors.yellow,
+        title: Text(
+          'Monkey Place',
+          style: TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            //fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      body: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.black,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: 250,
+              height: 100,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '이름 : 이다민',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    '직책 : 팀장',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(children: [
+                    Text(
+                      'TMI : 개발이 참 어렵네요..',
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.heart,
+                            color: Colors.black54,
+                            size: 16,
+                          ),
+                          Text(
+                            '1',
+                            style: TextStyle(color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ]),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -18,7 +110,7 @@ class thirdPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.backspace, color: Colors.white),
+          icon: Icon(Icons.backspace, color: Colors.black),
           onPressed: () {},
         ),
         elevation: 0.0,
@@ -27,7 +119,8 @@ class thirdPage extends StatelessWidget {
           'Monkey Place',
           style: TextStyle(
             fontSize: 20,
-            color: Colors.white,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
             //fontWeight: FontWeight.bold,
           ),
         ),
