@@ -30,7 +30,7 @@ class firstPage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.08,
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 100),
@@ -53,9 +53,17 @@ class firstPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.03,
             ),
             Text(
-              "Monkey Place에 오신 것을 환영합니다",
+              "Monkey Place에",
               style: TextStyle(
-                fontSize: 21,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Colors.yellow,
+              ),
+            ),
+            Text(
+              "오신 것을 환영합니다",
+              style: TextStyle(
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Colors.yellow,
               ),
