@@ -61,7 +61,7 @@ class firstPage extends StatelessWidget {
               ),
             ),
             Text(
-              "오신 것을 환영합니다",
+              "오신 것을 환영합니다.",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
