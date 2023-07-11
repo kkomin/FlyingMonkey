@@ -30,7 +30,7 @@ class firstPage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 100),
@@ -50,7 +50,7 @@ class firstPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               "Monkey Place에",
