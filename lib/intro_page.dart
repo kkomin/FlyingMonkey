@@ -120,7 +120,7 @@ class UserInfo extends StatelessWidget {
                         leading: Icon(Icons.person_pin_sharp),
                         title: Text("Members"),
                         subtitle: Text(
-                            "팀장 이다민                                                                팀원 김현정 남소진 양훈혁 이호식 황수연"),
+                            "팀장 이다민                                                                팀원 김현정 남소진 양윤혁 이호식 황수연"),
                         isThreeLine: true,
                       ),
                       ListTile(
