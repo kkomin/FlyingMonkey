@@ -128,7 +128,7 @@ class thirdPage extends StatelessWidget {
               Container(
                 width: 500,
                 height: 100,
-                decoration: BoxDecoration(
+                decoration: BoxDecoration( // 선
                   border: Border.all(
                     color: Colors.black,
                     width: 2.0,
