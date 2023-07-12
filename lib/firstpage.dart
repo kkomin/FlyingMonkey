@@ -1,6 +1,7 @@
 // 첫번째 페이지
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:monkeyplace/scondpage.dart';
 
 // ignore: camel_case_types
 class firstPage extends StatelessWidget {
@@ -53,23 +54,33 @@ class firstPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
-              "Monkey Place에",
+              "Monkey Place에 오신 것을",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Colors.yellow,
               ),
             ),
-            Text(
-              "오신 것을 환영합니다.",
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: Colors.yellow,
+            TextButton(
+              child: Text(
+                "환영합니다.",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow,
+                ),
               ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => secondPage(),
+                  ),
+                );
+              },
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.01,
             ),
             Container(
               width: 350,
@@ -79,12 +90,22 @@ class firstPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Center(
-                child: Text(
-                  '플라잉 원숭이',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => secondPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "플라잉 원숭이",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
