@@ -138,7 +138,7 @@ class _SecondPageState extends State<SecondPage> {
                         SizedBox(
                           height: 5,
                         ),
-                        Row(
+                        /*Row(
                           children: [
                             Spacer(),
                             Icon(
@@ -157,7 +157,7 @@ class _SecondPageState extends State<SecondPage> {
                               ),
                             )
                           ],
-                        )
+                        ) */
                       ],
                     ),
                   ),
