@@ -36,8 +36,8 @@ class HomePageState extends State<HomePage> {
           children: [
             TabBarView(
               children: [
-                FirstPage(),
-                SecondPage(),
+                // FirstPage(),
+                // SecondPage(),
                 ThirdPage(),
               ],
             ),

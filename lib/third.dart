@@ -1,7 +1,10 @@
 //세 번째 페이지
 import 'dart:ffi';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:monkeyplace/second.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget buildRoundedBox(String text, Color color) {
   return Container(
@@ -35,17 +38,22 @@ class ThirdPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
-            color: Colors.white,
+            color: Colors.black,
             size: 25,
           ),
           onPressed: () {
-            DefaultTabController.of(context).animateTo(1);
+            // 슬라이드 형태로 이동 구현
+            Navigator.pop(
+                context, MaterialPageRoute(builder: (context) => SecondPage()));
+            // 클릭 이동 구현
+            // Navigator.push(
+            //     context, MaterialPageRoute(builder: (context) => SecondPage()));
           },
         ),
-        backgroundColor: Colors.yellow[700],
+        backgroundColor: Color(0xFFFAE9D2),
         title: Text(
           "MonkeyPlace",
-          style: TextStyle(fontSize: 25),
+          style: TextStyle(fontSize: 25, color: Colors.black),
         ),
         toolbarHeight: 70,
         centerTitle: true,
@@ -196,7 +204,7 @@ class ThirdPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "자격증 및 수상경력",
+                      "블로그",
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -205,6 +213,29 @@ class ThirdPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
+                    Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          _launchURL('https://blog.naver.com/kkomin_0_0');
+                        },
+                        child: Text(
+                          "•    https://blog.naver.com/kkomin_0_0",
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      '•    https://velog.io/@kkominl',
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    )
+                    // GestureDetector(
+                    //     onTap: () =>
+                    //         _launchURL('https://blog.naver.com/kkomin_0_0')),
                   ],
                 ),
               ),
@@ -213,5 +244,13 @@ class ThirdPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'URL을 열 수 없습니다: $url';
+    }
   }
 }
