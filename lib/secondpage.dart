@@ -113,11 +113,11 @@ class _SecondPageState extends State<SecondPage> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Color(0xFFF9E932),
         elevation: 0.5,
         leading: Icon(CupertinoIcons.arrow_2_circlepath),
         title: Row(
-          // (중간) //
           children: [
             Text(
               'Monkey Place',
@@ -148,7 +148,6 @@ class _SecondPageState extends State<SecondPage> {
           String position = dataList[index]['position'];
           String TMI = dataList[index]['TMI'];
           String img = dataList[index]['img'];
-
           return Padding(
             padding: const EdgeInsets.only(top: 10),
             child: ElevatedButton(
@@ -173,6 +172,8 @@ class _SecondPageState extends State<SecondPage> {
                       fit: BoxFit.cover,
                     ),
                   ),
+                  // 공백 추가
+                  SizedBox(width: 12),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
