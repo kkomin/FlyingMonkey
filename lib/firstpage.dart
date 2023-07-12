@@ -43,10 +43,20 @@ class firstPage extends StatelessWidget {
                   color: Colors.yellow,
                   shape: BoxShape.circle,
                 ),
-                child: Image.network(
-                  "https://i.esdrop.com/d/f/IiQGQFHH09/lyjGUfftW8.png",
-                  width: 130,
-                  height: 130,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => secondPage(),
+                      ),
+                    );
+                  },
+                  child: Image.network(
+                    "https://i.esdrop.com/d/f/IiQGQFHH09/lyjGUfftW8.png",
+                    width: 130,
+                    height: 130,
+                  ),
                 ),
               ),
             ),
@@ -54,30 +64,20 @@ class firstPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
-              "Monkey Place에 오신 것을",
+              "Monkey Place에",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Colors.yellow,
               ),
             ),
-            TextButton(
-              child: Text(
-                "환영합니다.",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.yellow,
-                ),
+            Text(
+              "오신 것을 환영합니다.",
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Colors.yellow,
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => secondPage(),
-                  ),
-                );
-              },
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.01,
@@ -90,22 +90,12 @@ class firstPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Center(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => secondPage(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    "플라잉 원숭이",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                    ),
+                child: Text(
+                  "플라잉 원숭이",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
