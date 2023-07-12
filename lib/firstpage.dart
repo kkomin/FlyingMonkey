@@ -39,11 +39,11 @@ class firstPage extends StatelessWidget {
                 width: 200,
                 height: 200,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 255, 244, 175),
+                  color: Colors.yellow,
                   shape: BoxShape.circle,
                 ),
                 child: Image.network(
-                  "https://img.freepik.com/free-vector/cute-baby-monkey-hug-banana-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated_138676-5559.jpg?t=st=1689060764~exp=1689061364~hmac=e55d61a995d07d260a4b964d05c52232b3ef4e9ae5cc4e57c5ef7a3e3a3a7aa1",
+                  "https://i.esdrop.com/d/f/IiQGQFHH09/lyjGUfftW8.png",
                   width: 130,
                   height: 130,
                 ),
