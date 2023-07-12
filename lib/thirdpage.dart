@@ -1,10 +1,5 @@
-//세 번째 페이지
-import 'dart:ffi';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:monkeyplace/second.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 Widget buildRoundedBox(String text, Color color) {
   return Container(
@@ -27,37 +22,23 @@ Widget buildRoundedBox(String text, Color color) {
   );
 }
 
-class ThirdPage extends StatelessWidget {
-  const ThirdPage({super.key, required List<Map<String, dynamic>> data});
+class Third2Page extends StatelessWidget {
+  final Map<String, dynamic> data;
+  //const Third2Page({required this.dataList, Key? key}) : super(key: key);
+  const Third2Page({Key? key, required this.data}) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
-    // url로 이동
-    void launchURL(String url) async {
-      if (await canLaunch(url)) {
-        await launch(url);
-      } else {
-        print('Could not launch $url');
-      }
-    }
-
-    Widget buildHyperlinkText(String text, String url) {
-      //하이퍼링크 클릭시 launurl 함수 실행
-      return TextButton(
-        onPressed: () async {
-          print("클릭");
-          launchURL("https://blog.naver.com/kkomin_0_0");
-        },
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 18,
-            decoration: TextDecoration.underline,
-            color: Colors.blue,
-          ),
-        ),
-      );
-    }
+    String name = data['name'];
+    String imgUrl = data['imgUrl'];
+    String tmi = data['TMI'];
+    String major = data['major'];
+    String intro = data['intro'];
+    String key1 = data['key1'];
+    String key2 = data['key2'];
+    String key3 = data['key3'];
+    String key4 = data['key4'];
+    String key5 = data['key5'];
+    String key6 = data['key6'];
 
     return Scaffold(
       appBar: AppBar(
@@ -96,9 +77,7 @@ class ThirdPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                "https://kkomin.github.io/dog.jpg")),
+                            fit: BoxFit.cover, image: NetworkImage(imgUrl)),
                       ),
                     ),
                   ),
@@ -109,7 +88,7 @@ class ThirdPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '이다민',
+                        name,
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -117,7 +96,7 @@ class ThirdPage extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        '빅데이터학과 / 컴퓨터공학과',
+                        major,
                         style: TextStyle(
                           fontSize: 18,
                         ),
@@ -126,7 +105,7 @@ class ThirdPage extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        '개발이 참 어렵네요...',
+                        tmi,
                         softWrap: false,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontSize: 16, color: Colors.black),
@@ -206,7 +185,7 @@ class ThirdPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Text("안녕하세요. 개발자를 꿈꾸고 있는 이다민입니다:) "),
+                    Text(intro),
                     SizedBox(
                       height: 70,
                     )
@@ -239,8 +218,6 @@ class ThirdPage extends StatelessWidget {
                     Row(
                       children: [
                         Text("•    "),
-                        buildHyperlinkText("https://blog.naver.com/kkomin_0_0",
-                            "https://blog.naver.com/kkomin_0_0"),
                       ],
                     ),
                     SizedBox(
