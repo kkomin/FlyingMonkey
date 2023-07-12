@@ -1,7 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:monkeyplace/scondpage.dart';
+import 'package:monkeyplace/secondpage.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -67,7 +65,7 @@ class IntroPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => secondPage(),
+                              builder: (_) => SecondPage(),
                             ),
                           );
                         },
