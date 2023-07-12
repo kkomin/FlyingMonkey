@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:monkeyplace/third.dart';
 import 'package:monkeyplace/thirdpage.dart';
 
 class SecondPage extends StatelessWidget {

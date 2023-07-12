@@ -39,6 +39,7 @@ class Third2Page extends StatelessWidget {
     String key4 = data['key4'];
     String key5 = data['key5'];
     String key6 = data['key6'];
+    String blog = data['blog'];
 
     return Scaffold(
       appBar: AppBar(
@@ -62,179 +63,189 @@ class Third2Page extends StatelessWidget {
         toolbarHeight: 70,
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-            child: Row(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: ClipOval(
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            fit: BoxFit.cover, image: NetworkImage(imgUrl)),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: Row(
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: ClipOval(
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              fit: BoxFit.cover, image: NetworkImage(imgUrl)),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 13),
-                Expanded(
+                  SizedBox(width: 13),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          name,
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          major,
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          tmi,
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(fontSize: 16, color: Colors.black),
+                          maxLines: 5,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Divider(
+              thickness: 2,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Row(
+                children: [
+                  Text(
+                    "키워드 소개",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  )
+                ],
+              ),
+            ),
+            // MBTI, 성격, 취미 등
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  buildRoundedBox(key1, Colors.pink[200]!),
+                  SizedBox(width: 10),
+                  buildRoundedBox(key2, Colors.purple[200]!),
+                  SizedBox(width: 10),
+                  buildRoundedBox(key3, Colors.blue[200]!),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  buildRoundedBox(key4, Colors.green[200]!),
+                  SizedBox(width: 10),
+                  buildRoundedBox(key5, Colors.orange[200]!),
+                  SizedBox(width: 10),
+                  buildRoundedBox(key6, Colors.yellow[200]!),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Divider(
+              thickness: 2,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        name,
+                        "자기소개",
                         style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        major,
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
-                        tmi,
+                        intro,
                         softWrap: false,
+                        maxLines: 10,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 16, color: Colors.black),
-                        maxLines: 5,
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(
+                        height: 70,
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Divider(
+              thickness: 2,
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "블로그",
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Text("•    "),
+                          Text(blog),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Text("•    "),
+                          Text(blog),
+                        ],
                       ),
                     ],
                   ),
                 ),
               ],
             ),
-          ),
-          Divider(
-            thickness: 2,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-            child: Row(
-              children: [
-                Text(
-                  "키워드 소개",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                )
-              ],
-            ),
-          ),
-          // MBTI, 성격, 취미 등
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                buildRoundedBox('ESTJ', Colors.pink[200]!),
-                SizedBox(width: 10),
-                buildRoundedBox('강아지', Colors.purple[200]!),
-                SizedBox(width: 10),
-                buildRoundedBox('프로그래밍', Colors.blue[200]!),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                buildRoundedBox('강아지', Colors.green[200]!),
-                SizedBox(width: 10),
-                buildRoundedBox('VALORANT', Colors.orange[200]!),
-                SizedBox(width: 10),
-                buildRoundedBox('오므라이스', Colors.yellow[200]!),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Divider(
-            thickness: 2,
-          ),
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "자기소개",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(intro),
-                    SizedBox(
-                      height: 70,
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-          Divider(
-            thickness: 2,
-          ),
-          Row(
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "블로그",
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      children: [
-                        Text("•    "),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      '•    ',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
