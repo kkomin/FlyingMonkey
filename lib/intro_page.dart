@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:monkeyplace/secondpage.dart';
 
+import 'package:monkeyplace/secondpage.dart';
+
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
 
@@ -9,6 +11,8 @@ class IntroPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.yellow,
+        automaticallyImplyLeading: false,
+        elevation: 0.5,
         title: Text(
           "Monkey Place",
           style: TextStyle(
@@ -36,10 +40,6 @@ class IntroPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Container(
-                  //     width: double.infinity,
-                  //     height: 450,
-                  //     color: Color(0xFFFAE9D2)),
                   child: Column(
                     children: <Widget>[
                       SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monkeyplace/secondpage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget buildRoundedBox(String text, Color color) {
   return Container(
@@ -24,12 +25,11 @@ Widget buildRoundedBox(String text, Color color) {
 
 class ThirdPage extends StatelessWidget {
   final Map<String, dynamic> data;
-  //const Third2Page({required this.dataList, Key? key}) : super(key: key);
   const ThirdPage({Key? key, required this.data}) : super(key: key);
 
   Widget build(BuildContext context) {
     String name = data['name'];
-    String imgUrl = data['imgUrl'];
+    String imgUrl = data['img'];
     String tmi = data['TMI'];
     String major = data['major'];
     String intro = data['intro'];
@@ -43,6 +43,7 @@ class ThirdPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.5,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
@@ -50,17 +51,16 @@ class ThirdPage extends StatelessWidget {
             size: 25,
           ),
           onPressed: () {
-            // 클릭 이동 구현
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => SecondPage()));
           },
         ),
-        backgroundColor: Color(0xFFFAE9D2),
+        backgroundColor: Color(0xFFF9E932),
         title: Text(
           "MonkeyPlace",
           style: TextStyle(fontSize: 25, color: Colors.black),
         ),
-        toolbarHeight: 70,
+        toolbarHeight: 50,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -80,7 +80,9 @@ class ThirdPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              fit: BoxFit.cover, image: NetworkImage(imgUrl)),
+                            fit: BoxFit.cover,
+                            image: NetworkImage(imgUrl),
+                          ),
                         ),
                       ),
                     ),
@@ -170,13 +172,12 @@ class ThirdPage extends StatelessWidget {
             Divider(
               thickness: 2,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                  child: Column(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -191,59 +192,56 @@ class ThirdPage extends StatelessWidget {
                       ),
                       Text(
                         intro,
-                        softWrap: false,
-                        maxLines: 10,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                       SizedBox(
-                        height: 70,
+                        height: 10,
                       )
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             Divider(
               thickness: 2,
             ),
-            Row(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "블로그",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
                     children: [
                       Text(
-                        "블로그",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                        "•    ",
+                        style: TextStyle(fontSize: 18),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Text("•    "),
-                          Text(blog),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Text("•    "),
-                          Text(blog),
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          launch(blog);
+                        },
+                        child: Text(
+                          blog,
+                          style: TextStyle(
+                              fontSize: 18,
+                              decoration: TextDecoration.underline,
+                              color: Colors.blue),
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

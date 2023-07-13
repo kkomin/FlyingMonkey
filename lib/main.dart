@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monkeyplace/secondpage.dart';
 import 'package:monkeyplace/intro_page.dart';
+import 'package:monkeyplace/secondpage.dart';
 import 'package:monkeyplace/thirdpage.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SecondPage(),
+      home: IntroPage(),
     );
   }
 }
@@ -33,12 +33,11 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 1,
-      length: 3,
+      length: 2,
       child: Scaffold(
         body: IndexedStack(
           index: currentIndex,
           children: [
-            IntroPage(),
             SecondPage(),
             ThirdPage(
               data: {},
