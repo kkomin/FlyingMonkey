@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monkeyplace/secondpage.dart';
 import 'package:monkeyplace/intro_page.dart';
+import 'package:monkeyplace/secondpage.dart';
 import 'package:monkeyplace/thirdpage.dart';
 
 void main() {
@@ -32,12 +32,12 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: 1,
       length: 3,
       child: Scaffold(
         body: IndexedStack(
           index: currentIndex,
           children: [
-            IntroPage(),
             SecondPage(),
             ThirdPage(
               data: {},

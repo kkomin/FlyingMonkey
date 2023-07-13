@@ -125,7 +125,7 @@ class SecondPageState extends State<SecondPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFF9E932),
-        toolbarHeight: 70,
+        toolbarHeight: 50,
         elevation: 0.5,
         centerTitle: true,
         leading: IconButton(

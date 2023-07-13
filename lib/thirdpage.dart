@@ -43,6 +43,7 @@ class ThirdPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0.5,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_rounded,
@@ -59,7 +60,7 @@ class ThirdPage extends StatelessWidget {
           "MonkeyPlace",
           style: TextStyle(fontSize: 25, color: Colors.black),
         ),
-        toolbarHeight: 70,
+        toolbarHeight: 50,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -194,7 +195,7 @@ class ThirdPage extends StatelessWidget {
                         style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       )
                     ],
                   ),
@@ -217,7 +218,7 @@ class ThirdPage extends StatelessWidget {
                         color: Colors.black),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Row(
                     children: [
