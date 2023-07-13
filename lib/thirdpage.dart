@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:monkeyplace/second.dart';
+import 'package:monkeyplace/secondpage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget buildRoundedBox(String text, Color color) {
   return Container(
@@ -24,8 +25,16 @@ Widget buildRoundedBox(String text, Color color) {
 
 class Third2Page extends StatelessWidget {
   final Map<String, dynamic> data;
-  //const Third2Page({required this.dataList, Key? key}) : super(key: key);
+
   const Third2Page({Key? key, required this.data}) : super(key: key);
+
+  Future<void> _launchBlogUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   Widget build(BuildContext context) {
     String name = data['name'];
@@ -50,9 +59,10 @@ class Third2Page extends StatelessWidget {
             size: 25,
           ),
           onPressed: () {
-            // 클릭 이동 구현
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SecondPage()));
+              context,
+              MaterialPageRoute(builder: (context) => SecondPage()),
+            );
           },
         ),
         backgroundColor: Color(0xFFFAE9D2),
@@ -65,6 +75,7 @@ class Third2Page extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
@@ -79,7 +90,9 @@ class Third2Page extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              fit: BoxFit.cover, image: NetworkImage(imgUrl)),
+                            fit: BoxFit.cover,
+                            image: NetworkImage(imgUrl),
+                          ),
                         ),
                       ),
                     ),
@@ -92,20 +105,16 @@ class Third2Page extends StatelessWidget {
                         Text(
                           name,
                           style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Text(
-                          major,
-                          style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
+                        SizedBox(height: 8),
+                        Text(
+                          major,
+                          style: TextStyle(fontSize: 18),
                         ),
+                        SizedBox(height: 10),
                         Text(
                           tmi,
                           softWrap: false,
@@ -119,9 +128,7 @@ class Third2Page extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(
-              thickness: 2,
-            ),
+            Divider(thickness: 2),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
               child: Row(
@@ -129,14 +136,14 @@ class Third2Page extends StatelessWidget {
                   Text(
                     "키워드 소개",
                     style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  )
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
                 ],
               ),
             ),
-            // MBTI, 성격, 취미 등
             Padding(
               padding: const EdgeInsets.all(10),
               child: Row(
@@ -163,86 +170,66 @@ class Third2Page extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 5,
-            ),
-            Divider(
-              thickness: 2,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "자기소개",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        intro,
-                        softWrap: false,
-                        maxLines: 10,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                      ),
-                      SizedBox(
-                        height: 70,
-                      )
-                    ],
+            SizedBox(height: 5),
+            Divider(thickness: 2),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "자기소개",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Divider(
-              thickness: 2,
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "블로그",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Text("•    "),
-                          Text(blog),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Text("•    "),
-                          Text(blog),
-                        ],
-                      ),
-                    ],
+                  SizedBox(height: 10),
+                  Text(
+                    intro,
+                    style: TextStyle(fontSize: 16, color: Colors.black),
                   ),
-                ),
-              ],
+                  SizedBox(height: 20),
+                ],
+              ),
+            ),
+            Divider(thickness: 2),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "블로그",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  InkWell(
+                    onTap: () {
+                      _launchBlogUrl(blog);
+                    },
+                    child: Row(
+                      children: [
+                        Text("•    "),
+                        Expanded(
+                          child: Text(
+                            blog,
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

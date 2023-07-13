@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monkeyplace/first.dart';
 import 'package:monkeyplace/secondpage.dart';
-import 'package:monkeyplace/third.dart';
 import 'package:monkeyplace/thirdpage.dart';
 
 void main() {
