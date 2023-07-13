@@ -193,15 +193,18 @@ class firstPage extends StatelessWidget {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.01,
                           ),
-                          Text(
-                            "원숭이처럼 재밌고 유쾌하게 프로젝트를        즐기면서, 자유롭고 창의적인 사고로              프로젝트를 만들어내자 !",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
+                          Padding(
+                            padding: const EdgeInsets.only(right: 40),
+                            child: Text(
+                              "원숭이처럼 재밌고 유쾌하게 프로젝트를 즐기면서, 자유롭고 창의적인 사고로   프로젝트를 만들어내자 !",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
+                              softWrap: false,
+                              maxLines: 4,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            softWrap: false,
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
                           )
                         ],
                       ),
