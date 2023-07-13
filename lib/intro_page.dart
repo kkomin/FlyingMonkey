@@ -43,7 +43,7 @@ class IntroPage extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       SizedBox(
-                        height: 50,
+                        height: 30,
                       ),
                       const Text(
                         "15조",
