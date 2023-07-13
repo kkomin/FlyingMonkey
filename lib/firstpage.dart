@@ -1,7 +1,7 @@
 // 첫번째 페이지
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:monkeyplace/scondpage.dart';
+import 'package:monkeyplace/secondpage.dart';
 
 // ignore: camel_case_types
 class firstPage extends StatelessWidget {
@@ -48,7 +48,7 @@ class firstPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => secondPage(),
+                        builder: (_) => SecondPage(),
                       ),
                     );
                   },
