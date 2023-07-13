@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:monkeyplace/intro_page.dart';
 import 'package:monkeyplace/thirdpage.dart';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({super.key});
 
   @override
-  State<SecondPage> createState() => _SecondPageState();
+  State<SecondPage> createState() => SecondPageState();
 }
 
-class _SecondPageState extends State<SecondPage> {
+class SecondPageState extends State<SecondPage> {
   bool like = false; // 좋아요 여부
   int likenum = 1;
 
@@ -22,12 +23,12 @@ class _SecondPageState extends State<SecondPage> {
         "TMI": "개발이 참 어렵네요..",
         "img": "assets/myshiba.jpg",
         "major": "빅데이터학과",
-        "key1": "1",
-        "key2": "2",
-        "key3": "3",
-        "key4": "4",
-        "key5": "5",
-        "key6": "6",
+        "key1": "ESTJ",
+        "key2": "UNITY",
+        "key3": "노래방",
+        "key4": "강아지",
+        "key5": "RIOT",
+        "key6": "오므라이스",
         "intro":
             "안녕하세요😊 능력있는 개발자가 되는 것을 꿈꾸는 15조 팀장입니다. 여러 다양한 언어를 접해봤지만 flutter은 처음이라 아직 미숙하지만 열심히 공부해서 익숙하게 사용할 수 있도록 노력해보겠습니다!",
         "blog": "https://blog.naver.com/kkomin_0_0",
@@ -37,7 +38,7 @@ class _SecondPageState extends State<SecondPage> {
         "position": "직책 : 팀원",
         "TMI": "🐜개미는 뚠뚠.. 오늘도 뚠뚠.. 열심히.. 일을 하네.. 뚠뚠 🐜",
         "img": "assets/myshiba.jpg",
-        "major": "전자기계공학과",
+        "major": "전자공학과 / 전자소프트웨어공학",
         "key1": "1",
         "key2": "2",
         "key3": "3",
@@ -108,16 +109,18 @@ class _SecondPageState extends State<SecondPage> {
         "key6": "6",
         "intro": "소진님",
         "blog": "https://velog.io/@asd0299",
+        "intro":
+            "안녕하세요. 호텔경영학과를 졸업해 호텔리어로 근무 후 이것저것 일하다가 가족의 권유로 개발자가 되기 위해 내배캠 스파르타에 들어오게 되었습니다. 서비스직만 하다가 공부하려니 너무 어렵네요… 열심히 배워나가서 좋은 개발자가 되겠습니다!"
       },
     ];
 
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         backgroundColor: Color(0xFFF9E932),
         elevation: 0.5,
         leading: Icon(CupertinoIcons.arrow_2_circlepath),
         title: Row(
+          // (중간) //
           children: [
             Text(
               'Monkey Place',
@@ -148,16 +151,16 @@ class _SecondPageState extends State<SecondPage> {
           String position = dataList[index]['position'];
           String TMI = dataList[index]['TMI'];
           String img = dataList[index]['img'];
+
           return Padding(
             padding: const EdgeInsets.only(top: 10),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ThirdPage(data: dataList[index]),
-                  ),
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            ThirdPage(data: dataList[index])));
               },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +175,6 @@ class _SecondPageState extends State<SecondPage> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  // 공백 추가
                   SizedBox(width: 12),
                   Expanded(
                     child: Padding(

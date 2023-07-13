@@ -24,12 +24,11 @@ Widget buildRoundedBox(String text, Color color) {
 
 class ThirdPage extends StatelessWidget {
   final Map<String, dynamic> data;
-  //const Third2Page({required this.dataList, Key? key}) : super(key: key);
   const ThirdPage({Key? key, required this.data}) : super(key: key);
 
   Widget build(BuildContext context) {
     String name = data['name'];
-    String imgUrl = data['imgUrl'];
+    String imgUrl = data['img'];
     String tmi = data['TMI'];
     String major = data['major'];
     String intro = data['intro'];
@@ -80,7 +79,7 @@ class ThirdPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              fit: BoxFit.cover, image: NetworkImage(imgUrl)),
+                              fit: BoxFit.cover, image: AssetImage(imgUrl)),
                         ),
                       ),
                     ),
@@ -221,15 +220,6 @@ class ThirdPage extends StatelessWidget {
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Text("•    "),
-                          Text(blog),
-                        ],
                       ),
                       SizedBox(
                         height: 20,
