@@ -144,8 +144,26 @@ class UserInfo extends StatelessWidget {
                       ListTile(
                         leading: Icon(Icons.person_pin_sharp),
                         title: Text("Members"),
-                        subtitle: Text("팀장 이다민 팀원 남소진 양윤혁 이호식 황수연"),
-                        isThreeLine: true,
+                        subtitle: SizedBox(
+                          // width: 0,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("팀장 이다민",
+                                  softWrap: false,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis),
+                              Text("팀원 김현정 남소진 양윤혁 이호식 황수연",
+                                  softWrap: false,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                        width: 15,
                       ),
                       ListTile(
                         leading: Icon(Icons.person),
@@ -153,6 +171,10 @@ class UserInfo extends StatelessWidget {
                         subtitle: Text(
                             "팀원들이 원숭이처럼 재밌고 유쾌하게 프로젝트를 즐기면서 자유롭고 창의적인 사고로 프로젝트를 만들어내자!"),
                       ),
+                      SizedBox(
+                        height: 15,
+                        width: 15,
+                      )
                     ],
                   )
                 ],
