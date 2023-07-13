@@ -189,6 +189,7 @@ class SecondPageState extends State<SecondPage> {
                       fit: BoxFit.cover,
                     ),
                   ),
+                  // 공백 추가
                   SizedBox(width: 12),
                   Expanded(
                     child: Padding(
