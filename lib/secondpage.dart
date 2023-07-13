@@ -118,7 +118,18 @@ class SecondPageState extends State<SecondPage> {
       appBar: AppBar(
         backgroundColor: Color(0xFFF9E932),
         elevation: 0.5,
-        leading: Icon(CupertinoIcons.arrow_2_circlepath),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black,
+            size: 25,
+          ),
+          onPressed: () {
+            // 클릭 이동 구현
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => IntroPage()));
+          },
+        ),
         title: Row(
           // (중간) //
           children: [
