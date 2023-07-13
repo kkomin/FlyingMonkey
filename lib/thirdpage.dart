@@ -29,7 +29,7 @@ class ThirdPage extends StatelessWidget {
 
   Widget build(BuildContext context) {
     String name = data['name'];
-    String imgUrl = data['imgUrl'];
+    String imgUrl = data['img'];
     String tmi = data['TMI'];
     String major = data['major'];
     String intro = data['intro'];
@@ -80,7 +80,7 @@ class ThirdPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              fit: BoxFit.cover, image: NetworkImage(imgUrl)),
+                              fit: BoxFit.cover, image: AssetImage(imgUrl)),
                         ),
                       ),
                     ),

@@ -151,6 +151,9 @@ class _SecondPageState extends State<SecondPage> {
           return Padding(
             padding: const EdgeInsets.only(top: 10),
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
