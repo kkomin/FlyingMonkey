@@ -33,7 +33,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       initialIndex: 1,
-      length: 3,
+      length: 2,
       child: Scaffold(
         body: IndexedStack(
           index: currentIndex,
