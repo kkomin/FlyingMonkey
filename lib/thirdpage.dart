@@ -24,7 +24,6 @@ Widget buildRoundedBox(String text, Color color) {
 
 class ThirdPage extends StatelessWidget {
   final Map<String, dynamic> data;
-  //const Third2Page({required this.dataList, Key? key}) : super(key: key);
   const ThirdPage({Key? key, required this.data}) : super(key: key);
 
   Widget build(BuildContext context) {
@@ -221,15 +220,6 @@ class ThirdPage extends StatelessWidget {
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Text("•    "),
-                          Text(blog),
-                        ],
                       ),
                       SizedBox(
                         height: 20,
