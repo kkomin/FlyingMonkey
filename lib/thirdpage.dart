@@ -229,8 +229,6 @@ class ThirdPage extends StatelessWidget {
                         onTap: () {
                           launch(blog);
                         },
-                      ),
-                      GestureDetector(
                         child: Text(
                           blog,
                           style: TextStyle(fontSize: 18),
