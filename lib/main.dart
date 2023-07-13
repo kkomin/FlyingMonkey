@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:monkeyplace/intro_page.dart';
+import 'package:monkeyplace/secondpage.dart';
+import 'package:monkeyplace/thirdpage.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,74 +14,59 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ThirdPage(),
+      home: IntroPage(),
     );
   }
 }
 
-// 첫 번째 페이지
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
-// 두 번째 페이지
+  @override
+  State<HomePage> createState() => HomePageState();
+}
 
-//세 번째 페이지
-class ThirdPage extends StatelessWidget {
-  const ThirdPage({super.key});
+class HomePageState extends State<HomePage> {
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.orange[400],
-        title: Text(
-          "MonkeyPlace",
-          style: TextStyle(fontSize: 25),
-        ),
-        toolbarHeight: 70,
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
-            child: Row(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: ClipOval(
-                    child: Container(
-                      width: 100,
-                      height: 100,
-                      color: Colors.blue,
-                      // 여기에 동그라미 모양의 사진 위젯을 추가하세요
-                    ),
-                  ),
-                ),
-                SizedBox(width: 10),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '이다민',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        '안녕하세요. 저는 이런 사람입니다.:)',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+    return DefaultTabController(
+      initialIndex: 1,
+      length: 2,
+      child: Scaffold(
+        body: IndexedStack(
+          index: currentIndex,
+          children: [
+            SecondPage(),
+            ThirdPage(
+              data: {},
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class TabPage extends StatefulWidget {
+  const TabPage({super.key});
+
+  @override
+  State<TabPage> createState() => _TabPageState();
+}
+
+class _TabPageState extends State<TabPage> {
+  @override
+  Widget build(BuildContext context) {
+    return TabPageSelector(
+      color: DefaultTabController.of(context).index == 1
+          ? Colors.blue[300]
+          : Colors.grey[400],
+      selectedColor: DefaultTabController.of(context).index == 1
+          ? Colors.white
+          : Colors.blue,
+      indicatorSize: 8,
     );
   }
 }
