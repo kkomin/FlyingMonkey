@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:monkeyplace/secondpage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget buildRoundedBox(String text, Color color) {
   return Container(
@@ -49,7 +50,6 @@ class ThirdPage extends StatelessWidget {
             size: 25,
           ),
           onPressed: () {
-            // 클릭 이동 구현
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => SecondPage()));
           },
@@ -79,7 +79,9 @@ class ThirdPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              fit: BoxFit.cover, image: AssetImage(imgUrl)),
+                            fit: BoxFit.cover,
+                            image: AssetImage(imgUrl),
+                          ),
                         ),
                       ),
                     ),
@@ -169,13 +171,12 @@ class ThirdPage extends StatelessWidget {
             Divider(
               thickness: 2,
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                  child: Column(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -190,50 +191,55 @@ class ThirdPage extends StatelessWidget {
                       ),
                       Text(
                         intro,
-                        softWrap: false,
-                        maxLines: 10,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16, color: Colors.black),
                       ),
                       SizedBox(
-                        height: 70,
+                        height: 20,
                       )
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             Divider(
               thickness: 2,
             ),
-            Row(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "블로그",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
                     children: [
                       Text(
-                        "블로그",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
+                        "•    ",
+                        style: TextStyle(fontSize: 18),
                       ),
-                      SizedBox(
-                        height: 20,
+                      GestureDetector(
+                        onTap: () {
+                          launch(blog);
+                        },
                       ),
-                      Row(
-                        children: [
-                          Text("•    "),
-                          Text(blog),
-                        ],
+                      GestureDetector(
+                        child: Text(
+                          blog,
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
