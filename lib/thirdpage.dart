@@ -54,7 +54,7 @@ class ThirdPage extends StatelessWidget {
                 context, MaterialPageRoute(builder: (context) => SecondPage()));
           },
         ),
-        backgroundColor: Color(0xFFFAE9D2),
+        backgroundColor: Color(0xFFF9E932),
         title: Text(
           "MonkeyPlace",
           style: TextStyle(fontSize: 25, color: Colors.black),
@@ -80,7 +80,7 @@ class ThirdPage extends StatelessWidget {
                           shape: BoxShape.circle,
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage(imgUrl),
+                            image: NetworkImage(imgUrl),
                           ),
                         ),
                       ),
@@ -231,7 +231,10 @@ class ThirdPage extends StatelessWidget {
                         },
                         child: Text(
                           blog,
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                              fontSize: 18,
+                              decoration: TextDecoration.underline,
+                              color: Colors.blue),
                         ),
                       ),
                     ],
