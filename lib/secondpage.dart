@@ -72,8 +72,7 @@ class SecondPageState extends State<SecondPage> {
         "name": "🙉김현정",
         "position": "직책 : 팀원",
         "TMI": "개발은 처음이라…☞☜",
-        "img":
-            "https://images.unsplash.com/photo-1683009427619-a1a11b799e05?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600",
+        "img": "https://i.esdrop.com/d/f/rCUNZQuuQy/VO4IyT3ilY.jpg",
         "major": "사회복지학과",
         "key1": "ESFP",
         "key2": "독서",
@@ -106,8 +105,7 @@ class SecondPageState extends State<SecondPage> {
         "name": "🙈남소진",
         "position": "직책 : 팀원",
         "TMI": "내성적입니다^^ 처음이지만 열심히하겠습니다.",
-        "img":
-            "https://ca.slack-edge.com/T043597JK8V-U05F7SWNMC6-add855a2fa3d-512",
+        "img": "https://i.esdrop.com/d/f/IiQGQFHH09/jRpNj1TGo8.jpg",
         "major": "호텔경영학과",
         "key1": "INFP",
         "key2": "요리",
